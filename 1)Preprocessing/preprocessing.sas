@@ -52,7 +52,7 @@ data collapsed_data;
     /* Truncate education_level values to the first 3 characters */
     education_level = SUBSTR(education_level, 1, 3);
     
-    /* Collapse education levels H20-35 and H50-60 into single groups, since H20-35 include
+    /* Collapse education levels H20-35 and H50-60 into single groups, since H20-35 includes
     all gymnasie-level educations, be they erhvervs- or akademisk-rettet. H50-60 are all
     bachelors, be they professions- or akademiske. */
     SELECT (education_level);
@@ -123,7 +123,7 @@ data individual_data;
 run; 
 
 /* Check that the number of rows in this transformed individual-level dataset equals the total sum 
-of counts, ie the total number of individuals included, in the aggregate (collapsed) dataset. 
+of counts, i.e., the total number of individuals included, in the aggregate (collapsed) dataset. 
 Store counts in macro variables and compare */
 PROC SQL;
     SELECT SUM(count) INTO :count_sum

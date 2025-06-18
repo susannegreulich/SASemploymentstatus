@@ -9,17 +9,17 @@ DATA aggregate_data;
     INPUT sex $ education_level $ count employment_status $ age_group $;
 RUN;*/
 
-/* Step 1: Import aggregate data, with appropriate lengths and formast.*/
+/* Step 1: Import aggregate data, with appropriate lengths and formats.*/
 DATA aggregate_data;
     INFILE '/home/u64257150/EmploymentStatus/1)Preprocessing/aggregate_data.csv' DLM=',' FIRSTOBS=2;
     INPUT sex :1. age_group :$10. education_level :$10. employment_status :$25. count;
 RUN;
 
 /* We are interested in the employment status, and what influences it. For this purpose and this dataset, 
-he standard Basic descriptive statistics function, PROC MEANS, does not make sense to use in this data set 
-because it has so many dimensions/properties, ie age, education level, sex.
+the standard basic descriptive statistics function, PROC MEANS, does not make sense to use in this data set 
+because it has so many dimensions/properties, i.e., age, education level, sex.
 Nor does a standard summary table of the counts by all variables, via PROC TABULATE, make sense. We are not interested in the 
-ABSOLUTE counts, but rather the RELATIVE percentages of the various employment statuses. Ie we are interested
+ABSOLUTE counts, but rather the RELATIVE percentages of the various employment statuses. I.e., we are interested
 in what PERCENTAGE are employed/unemployed in the various sex, age and education groups. 
 For this purpose, the more relevant tables are those of relative frequencies. */
 

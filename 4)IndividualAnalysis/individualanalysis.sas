@@ -1,11 +1,11 @@
-/* THIS SCRIPT IS A WORK IN-PROGRESS. I have yet to think about the proper ways to setup the discrete
+/* THIS SCRIPT IS A WORK IN-PROGRESS. I have yet to think about the proper ways to set up the discrete
 multivariate analysis and regressions, and how to interpret the results. */
 
 /* Set up destination pdf file for saving all SAS results. 
 The Listing style keeps formatting exactly as printed in SAS. */
 ODS PDF FILE='/home/u64257150/EmploymentStatus/4)IndividualAnalysis/individualanalysisresults.pdf' STYLE=LISTING;
 
-/* Import individual-level data SAMPLE, with appropriate lengths and formast.*/
+/* Import individual-level data SAMPLE, with appropriate lengths and formats.*/
 DATA individual_data;
     INFILE '/home/u64257150/EmploymentStatus/2)Sampling/stratified_individual_sample.csv' DLM=',' FIRSTOBS=2;
     INPUT sex :1. age_group :$10. education_level :$10. employment_status :$25.;

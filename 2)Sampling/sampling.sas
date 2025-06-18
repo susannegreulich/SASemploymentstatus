@@ -15,12 +15,12 @@ this full individual dataset, in order to test my code on.*/
 
 /* I want to take a random sample that is STRATIFIED by the 3 variables sex, age and education, as 
 these are supposedly/theoretically the independent variables which can influence the dependent 
-variable of employment_status. Stratifying maintains the original total populatino's relative 
-distribution of these  demographic characteristics. This thus also maintains the joint distribution
-of predictors, and is better for multivariate analysis, eg logistic regression. Stratified sampling  divides the total population into subgroups (strata) and 
+variable of employment_status. Stratifying maintains the original total population's relative 
+distribution of these demographic characteristics. This thus also maintains the joint distribution
+of predictors, and is better for multivariate analysis, e.g., logistic regression. Stratified sampling divides the total population into subgroups (strata) and 
 samples from each subgroup separately. This maintains the distribution of key variables in the 
 sample and guarantees representation from all categories. But stratifying by MANY variables has the
-potential downside of creating permutations  (combinations of variable values) with very low counts.
+potential downside of creating permutations (combinations of variable values) with very low counts.
 So I must first make sure that the counts for all possible 3-way permutations are high enough.*/
 
 /* Count observations in each 3-way combination, and look at the ones with lowest counts.*/
@@ -55,7 +55,7 @@ proc sql;
 quit;
 
 /* The results show that the 3-way permutation with LOWEST count has 379 observations, which
-is more than adequate for three-way stratification. So i proceed with 3-way stratification
+is more than adequate for three-way stratification. So I proceed with 3-way stratification.
 Sort the data by the 3 stratifying variables before proceeding with stratification. This is
 because SAS procedures are sensitive to order. */
 PROC SORT DATA=individual_data;
